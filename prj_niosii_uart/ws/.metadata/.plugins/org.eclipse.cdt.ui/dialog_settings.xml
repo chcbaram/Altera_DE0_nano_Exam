@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+	<section name="PDOMSearchPage">
+		<item value="false" key="caseSensitive"/>
+		<item value="227191" key="searchFlags"/>
+		<list key="previousPatterns">
+			<item value="UART_0_BASE"/>
+			<item value="altera_avalon_uart_close_fd"/>
+			<item value="altera_avalon_uart_write"/>
+			<item value="uart_0"/>
+			<item value="altera_avalon_uarth"/>
+			<item value="alt_printf"/>
+			<item value="ALT_USE_DIRECT_DRIVERS"/>
+			<item value="ALT_OPEN"/>
+			<item value="altera_avalon_uart"/>
+			<item value="ALT_MODULE_CLASS_uart_0"/>
+			<item value="UART_0_NAME"/>
+		</list>
+	</section>
+	<section name="completion_proposal_size">
+	</section>
+</section>

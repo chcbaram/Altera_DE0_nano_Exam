@@ -1,0 +1,69 @@
+//----------------------------------------------------------------------------
+//    프로그램명 	: ISR 관련 함수
+//
+//    만든이     	:
+//
+//    날  짜     	:
+//    
+//    최종 수정  	:
+//
+//    MPU_Type		:
+//
+//    파일명     	: Hw_ISR.c
+//----------------------------------------------------------------------------
+
+
+//----- 헤더파일 열기
+//
+#define  HW_ISR_LOCAL
+
+
+#include "Hw_ISR.h"
+
+
+
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_ISR_Init
+     WORK    : 
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+s32 Hw_ISR_Init( void )
+{
+	int Status;
+
+
+	XScuGic_Config *IntcConfig; /* Config for interrupt controller */
+
+	/*
+	 * Initialize the interrupt controller driver
+	 */
+	IntcConfig = XScuGic_LookupConfig(XPAR_SCUGIC_SINGLE_DEVICE_ID);
+	if (NULL == IntcConfig)
+	{
+		return XST_FAILURE;
+	}
+
+	Status = XScuGic_CfgInitialize( &Hw_ISR_Ctrl,
+									IntcConfig,
+									IntcConfig->CpuBaseAddress );
+	if (Status != XST_SUCCESS)
+	{
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Connect the interrupt controller interrupt handler to the
+	 * hardware interrupt handling logic in the processor.
+	 */
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler) XScuGic_InterruptHandler,	&Hw_ISR_Ctrl );
+
+
+	return XST_SUCCESS;
+}
+

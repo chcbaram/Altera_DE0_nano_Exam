@@ -1,0 +1,86 @@
+Quartus Prime Archive log --	C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/prj_niosii_sdram_tmp_archive.qarlog
+
+Archive:	C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/prj_niosii_sdram_tmp_archive.qar
+Date:		Mon Jan 04 01:20:15 2016
+Quartus Prime		15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/assignment_defaults.qdf
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii.qsys
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/niosii.bsf
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/niosii.cmp
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/niosii.html
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/niosii.xml
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/niosii_bb.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/niosii_generation.rpt
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/niosii_generation_previous.rpt
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/niosii_inst.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/niosii_inst.vhd
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/niosii.debuginfo
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/niosii.qip
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/niosii.regmap
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/niosii.vhd
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/niosii_rst_controller.vhd
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/niosii_rst_controller_001.vhd
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_avalon_sc_fifo.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_avalon_st_clock_crosser.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.sdc
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_avalon_st_pipeline_base.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_irq_clock_crosser.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_merlin_arbitrator.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_merlin_master_agent.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_merlin_master_translator.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_merlin_reorder_memory.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_merlin_slave_agent.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_merlin_slave_translator.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_merlin_traffic_limiter.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_reset_controller.sdc
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_reset_controller.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_reset_synchronizer.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/altera_std_synchronizer_nocut.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_altpll_0.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_irq_mapper.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_jtag_uart_0.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0_avalon_st_adapter.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0_cmd_demux.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0_cmd_mux.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0_router.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0_router_002.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0_rsp_demux.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0_rsp_demux_001.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_mm_interconnect_0_rsp_mux.sv
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu.ocp
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu.sdc
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_bht_ram.mif
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_dc_tag_ram.mif
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_debug_slave_sysclk.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_debug_slave_tck.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_debug_slave_wrapper.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_ic_tag_ram.mif
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_mult_cell.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_ociram_default_contents.mif
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_rf_ram_a.mif
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_rf_ram_b.mif
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_nios2_gen2_0_cpu_test_bench.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_onchip_memory2_0.hex
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_onchip_memory2_0.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii/synthesis/submodules/niosii_pio_0.v
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii_top.qsf
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/niosii_top.vhd
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/prj_niosii_sdram.qpf
+	======= Total: 69 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Mon Jan 04 01:20:20 2016
+Source archive file:	C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_sdram/prj_niosii_sdram_tmp_archive.qar
+Archive was extracted into	C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_pll/
+		 - successfully.

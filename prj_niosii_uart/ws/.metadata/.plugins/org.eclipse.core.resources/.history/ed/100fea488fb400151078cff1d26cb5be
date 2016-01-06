@@ -1,0 +1,301 @@
+//----------------------------------------------------------------------------
+//    프로그램명 : SPI 관련 함수
+//
+//    만든이     : Cho Han Cheol
+//
+//    날  짜     :
+//    
+//    최종 수정  :
+//
+//    MPU_Type   : 
+//
+//    파일명     : Hw_SPI.c
+//----------------------------------------------------------------------------
+
+
+
+//----- 헤더파일 열기
+//
+#define  HW_SPI_LOCAL  
+
+#include "Hw_SPI.h"
+#include "xspips.h"		/* SPI device driver */
+
+
+
+//----- 내부 정의
+//
+#define SPI_DEVICE_ID		XPAR_XSPIPS_0_DEVICE_ID
+
+
+
+//----- 내부 함수
+BOOL Hw_SPI_Ch1_Init(void);
+
+
+
+
+//----- 내부 변수
+static XSpiPs SpiInstance;
+volatile int  Hw_SPI_TransferInProgress;
+int 		  Hw_SPI_Error;
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_SPI_Init
+     WORK    : 
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_SPI_Init(void)
+{
+	static u8 Called = 0;
+
+
+	if( Called == 1 ) return;
+
+
+	Hw_SPI_Ch1_Init();
+
+	Called = 1;	
+}
+
+
+
+
+
+void Hw_SPI_Handler_1(void *CallBackRef, u32 StatusEvent, unsigned int ByteCount)
+{
+	/*
+	 * Indicate the transfer on the SPI bus is no longer in progress
+	 * regardless of the status event
+	 */
+	Hw_SPI_TransferInProgress = FALSE;
+
+	/*
+	 * If the event was not transfer done, then track it as an error
+	 */
+	if (StatusEvent != XST_SPI_TRANSFER_DONE)
+	{
+		Lb_printf("SPI ISR ERR\r\n");
+		Hw_SPI_Error++;
+	}
+
+	//Lb_printf("SPI ISR %d %d %d\r\n", ByteCount, SpiInstance.RemainingBytes, SpiInstance.RequestedBytes );
+
+}
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_SPI_Ch1_Init
+     WORK    : 
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+BOOL Hw_SPI_Ch1_Init(void)
+{
+	int Status;
+	XSpiPs *SpiInstancePtr;
+	XSpiPs_Config *SpiConfig;
+
+
+	SpiInstancePtr = &SpiInstance;
+
+	/*
+	 * Initialize the SPI driver so that it's ready to use
+	 */
+	SpiConfig = XSpiPs_LookupConfig(SPI_DEVICE_ID);
+	if (NULL == SpiConfig)
+	{
+		Lb_printf("XSpiPs_LookupConfig Fail\r\n");
+		return FALSE;
+	}
+
+	Status = XSpiPs_CfgInitialize(SpiInstancePtr, SpiConfig,
+				       SpiConfig->BaseAddress);
+	if (Status != XST_SUCCESS)
+	{
+		Lb_printf("XSpiPs_CfgInitialize Fail \r\n");
+		return FALSE;
+	}
+
+	Status = XSpiPs_SelfTest(SpiInstancePtr);
+	if (Status != XST_SUCCESS)
+	{
+		Lb_printf("XSpiPs_SelfTest Fail\r\n");
+		return FALSE;
+	}
+
+
+	/*
+	 * Set the Spi device as a master. External loopback is required.
+	 */
+	XSpiPs_SetOptions(	SpiInstancePtr,
+						XSPIPS_MASTER_OPTION |
+						XSPIPS_FORCE_SSELECT_OPTION);
+
+
+	XSpiPs_SetClkPrescaler(SpiInstancePtr, XSPIPS_CLK_PRESCALE_4);	// 166Mhz/64 = 2.5Mhz
+
+
+	XSpiPs_SetSlaveSelect(SpiInstancePtr, 0x00);
+
+
+	//-- 인터럽트 활성화
+	//
+	Status = XScuGic_Connect(&Hw_ISR_Ctrl, XPAR_XSPIPS_0_INTR,
+				(Xil_ExceptionHandler)XSpiPs_InterruptHandler,
+				(void *)SpiInstancePtr);
+	if (Status != XST_SUCCESS)
+	{
+		Lb_printf("XScuGic_Connect Fail\r\n");
+		return FALSE;
+	}
+
+
+	XSpiPs_SetStatusHandler(SpiInstancePtr, SpiInstancePtr, (XSpiPs_StatusHandler) Hw_SPI_Handler_1);
+
+	XScuGic_Enable(&Hw_ISR_Ctrl, XPAR_XSPIPS_0_INTR);
+
+	return TRUE;
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_SPI_Ch2_Init
+     WORK    : 
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_SPI_Ch2_Init(void)
+{
+	Hw_SPI_Enable(HW_SPI_CH2);	
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_SPI_Sel
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_SPI_Sel( u8 Ch, u8 Sel )
+{
+	switch( Ch )
+	{
+		case HW_SPI_CH1:
+			if( Sel == 0 )
+				XSpiPs_SetSlaveSelect(&SpiInstance, 0x00);
+			else
+				XSpiPs_SetSlaveSelect(&SpiInstance, 0x01);
+			break;
+
+		case HW_SPI_CH2:
+			break;
+
+		case HW_SPI_CH3:
+			break;
+	}
+}
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_SPI_Enable
+     WORK    : 
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_SPI_Enable( u8 Ch )
+{
+	switch( Ch )
+	{
+		case HW_SPI_CH1:
+			break;
+			
+		case HW_SPI_CH2:
+			break;
+			
+		case HW_SPI_CH3:
+			break;
+	}
+}
+
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_SPI_Disable
+     WORK    : 
+     ARG     : void             
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_SPI_Disable( u8 Ch )
+{
+
+}
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_SPI_Write8Bit
+     WORK    : 
+     ARG     : void           
+     RET     : void
+---------------------------------------------------------------------------*/
+u16 Hw_SPI_Write8Bit( u8 Ch, u8 WriteData )
+{
+	u32 TimeOut = 100;
+
+	Hw_SPI_Write( Ch, &WriteData, 1, TimeOut );
+
+	return 0;
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_SPI_Write
+     WORK    : 
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+u16 Hw_SPI_Write( u8 Ch, u8 *pData, u32 Length, u32 TimeOut )
+{
+	switch( Ch )
+	{
+		case HW_SPI_CH1:
+			Hw_SPI_TransferInProgress = TRUE;
+
+			XSpiPs_Transfer(&SpiInstance, pData, NULL, Length );
+
+			while (Hw_SPI_TransferInProgress);
+			break;
+	}
+
+	return 0;
+}
+
+
+
+
+
+
+
+

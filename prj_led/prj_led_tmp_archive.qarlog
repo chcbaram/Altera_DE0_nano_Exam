@@ -1,0 +1,23 @@
+Quartus Prime Archive log --	C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_led/prj_led_tmp_archive.qarlog
+
+Archive:	C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_led/prj_led_tmp_archive.qar
+Date:		Tue Jan 05 23:10:34 2016
+Quartus Prime		15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_led/led_top.qsf
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_led/led_top.vhd
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_led/output_files/Chain3.cdf
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_led/output_files/Chain5.cdf
+C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_led/prj_led.qpf
+c:/altera_lite/15.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 6 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Tue Jan 05 23:10:38 2016
+Source archive file:	C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_led/prj_led_tmp_archive.qar
+Archive was extracted into	C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_uart/
+		 - successfully.

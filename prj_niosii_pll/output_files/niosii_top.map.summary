@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Jan 04 01:23:26 2016
+Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+Revision Name : niosii_top
+Top-level Entity Name : niosii_top
+Family : Cyclone IV E
+Total logic elements : 4,118
+    Total combinational functions : 3,144
+    Dedicated logic registers : 2,433
+Total registers : 2433
+Total pins : 11
+Total virtual pins : 0
+Total memory bits : 447,552
+Embedded Multiplier 9-bit elements : 6
+Total PLLs : 1

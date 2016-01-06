@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+newSoftwareExampleWizardPage.defaultLocation=C\:\\FPGA\\DE0_nano\\Altera_DE0_nano_Exam\\prj_niosii_sdram\\software\\NiosII
+newSoftwareExampleWizardPage.sopcinfoFile=C\:\\FPGA\\DE0_nano\\Altera_DE0_nano_Exam\\prj_niosii_sdram\\niosii.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=C\:\\FPGA\\DE0_nano\\Altera_DE0_nano_Exam\\prj_niosii_sdram\\software\\NiosII_bsp

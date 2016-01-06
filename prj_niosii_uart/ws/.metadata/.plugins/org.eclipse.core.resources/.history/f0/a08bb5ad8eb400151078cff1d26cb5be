@@ -1,0 +1,43 @@
+//----------------------------------------------------------------------------
+//    프로그램명 	: LCD 관련 헤더
+//
+//    만든이     	:
+//
+//    날  짜     	:
+//    
+//    최종 수정  	:
+//
+//    MPU_Type	:
+//
+//    파일명     	: Hw_LCD.h
+//----------------------------------------------------------------------------
+                                                                                                 
+#ifndef __HW_LCD_H__
+#define __HW_LCD_H__
+
+
+#ifdef   HW_LCD_LOCAL
+#define  EXT_HW_LCD_DEF
+#else
+#define  EXT_HW_LCD_DEF     extern
+#endif
+
+
+
+#include "Hw.h"
+#include "xgpio.h"
+
+
+
+EXT_HW_LCD_DEF void  Hw_LCD_Init( void );
+
+EXT_HW_LCD_DEF void Hw_LCD_Delay_ms( u32 delay );
+EXT_HW_LCD_DEF void Hw_LCD_PIN_RST_HIGH( void );
+EXT_HW_LCD_DEF void Hw_LCD_PIN_RST_LOW( void );
+EXT_HW_LCD_DEF void Hw_LCD_PIN_RS_HIGH( void );
+EXT_HW_LCD_DEF void Hw_LCD_PIN_RS_LOW( void );
+
+EXT_HW_LCD_DEF void Hw_LCD_DspStr(u8 *s, u8 x, u8 y);
+EXT_HW_LCD_DEF void Hw_LCD_DspImg( u16 *pBuf );
+
+#endif

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="175" />
+   <irq preferredWidth="34" />
+  </columns>
+ </systemtable>
+ <library
+   expandedCategories="Library/Basic Functions/Clocks; PLLs and Resets/PLL,Library/Basic Functions/Clocks; PLLs and Resets,Library,Project,Library/Basic Functions" />
+ <window width="1180" height="879" x="729" y="357" />
+ <generation synthesis="VHDL" />
+ <hdlexample language="VHDL" />
+</preferences>

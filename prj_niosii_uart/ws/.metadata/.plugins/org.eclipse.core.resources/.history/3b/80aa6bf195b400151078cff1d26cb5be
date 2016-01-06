@@ -1,0 +1,398 @@
+//----------------------------------------------------------------------------
+//    프로그램명 	: Uart 관련 함수
+//
+//    만든이     	:
+//
+//    날  짜     	:
+//    
+//    최종 수정  	:
+//
+//    MPU_Type		:
+//
+//    파일명     	: Hw_Uart.h
+//----------------------------------------------------------------------------
+
+
+
+
+//----- 헤더파일 열기
+//
+#define  HW_UART_LOCAL
+
+#include "Hw_Uart.h"
+#include "Hw_Uart_Q.h"
+
+
+
+//-- 내부 선언
+//
+
+
+
+//-- 내부 변수
+//
+
+HW_UART_OBJ Hw_Uart_Ch[HW_UART_MAX_CH];
+
+static u8 Hw_Uart_COM1_RecvBuffer[32];
+
+
+
+//-- 내부 함수
+//
+void Hw_Uart_Open_COM1( u32 BaudData, void (*ISR_FuncPtr)(char Ch) );
+void Hw_Uart_Open_COM2( u32 BaudData, void (*ISR_FuncPtr)(char Ch) );
+
+
+
+
+//-- UART1 ISR
+//
+void Hw_ISR_UART1_Handler(void)
+{
+	u8 UartData;
+				
+	//UartData = REG_USART1_DR;
+	
+	Hw_Uart_Q_Push( 0, &UartData );
+
+	if( Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr != NULL )
+	{
+		(*Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr)(UartData);	
+	} 
+}
+
+
+void Hw_ISR_COM1_Handler(void *CallBackRef, u32 Event, unsigned int EventData)
+{
+	u8 UartData;
+
+
+	//if (Event == XUARTPS_EVENT_RECV_DATA)
+	{
+		//Lb_printf("Received %d, %c, %c\n", EventData, Hw_Uart_COM1_RecvBuffer[0], XUartPs_ReadReg(UartPs_COM1.Config.BaseAddress, XUARTPS_FIFO_OFFSET) );
+
+		UartData = Hw_Uart_COM1_RecvBuffer[0];
+
+		Hw_Uart_Q_Push( 0, &UartData );
+
+		if( Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr != NULL )
+		{
+			(*Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr)(UartData);
+		}
+	}
+}
+
+static void Hw_ISR_COM1_Handler(void* context)
+{
+	alt_u32 status;
+
+	HW_UART_OBJ *pUart = (HW_UART_OBJ *)context;
+
+
+
+	//-- 상태 읽기
+	//
+	status = IORD_ALTERA_AVALON_UART_STATUS(pUart->pBase);
+
+	//-- Clear any error flags set at the device
+	//
+	IOWR_ALTERA_AVALON_UART_STATUS(pUart->pBase, 0);
+
+	//-- Dummy read to ensure IRQ is negated before ISR returns
+	//
+	IORD_ALTERA_AVALON_UART_STATUS(pUart->pBase);
+
+
+	//-- RX 인터럽트 처리
+	//
+	if (status & ALTERA_AVALON_UART_STATUS_RRDY_MSK)
+	{
+		if (status & (ALTERA_AVALON_UART_STATUS_PE_MSK | ALTERA_AVALON_UART_STATUS_FE_MSK))
+		{
+			return;
+		}
+
+
+	}
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_Uart_Init
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_Uart_Init( void )
+{
+	u32 i;
+	
+	Hw_Uart_Q_Init();
+	
+	
+	for( i=0; i<HW_UART_MAX_CH; i++ )
+	{
+		Hw_Uart_Ch[i].Baud 		  = 0;
+		Hw_Uart_Ch[i].ISR_FuncPtr = NULL;
+	}	
+	
+	
+	Hw_Uart_Open( HW_UART_COM1, 115200, NULL );
+	Hw_Uart_Open( HW_UART_COM2, 115200, NULL );	
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_Uart_DeInit
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_Uart_DeInit( void )
+{
+
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_Uart_Open
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_Uart_Open( u8 Ch, u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
+{	
+	switch( Ch )
+	{
+		case HW_UART_COM1:
+			Hw_Uart_Open_COM1( BaudData, ISR_FuncPtr );
+			break;
+			
+		case HW_UART_COM2:
+			Hw_Uart_Open_COM2( BaudData, ISR_FuncPtr );
+			break;
+			
+		case HW_UART_COM3:
+			break;
+
+		case HW_UART_COM4:
+			break;
+
+		case HW_UART_COM5:
+			break;			
+	}
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_Uart_Open_COM1
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_Uart_Open_COM1( u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
+{	
+	u32 Reg;
+	void *pBase = (void *)UART_0_BASE;
+
+
+	Hw_Uart_Ch[HW_UART_COM1].Baud 		 = BaudData;
+	Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr = ISR_FuncPtr;
+	
+
+	// enable interrupts at the device
+	Reg = ALTERA_AVALON_UART_CONTROL_RRDY_MSK;
+
+
+	IOWR_ALTERA_AVALON_UART_CONTROL(pBase, Reg);
+
+
+	//-- 인터럽트 연결
+	//
+    alt_ic_isr_register( UART_0_IRQ_INTERRUPT_CONTROLLER_ID, UART_0_IRQ, Hw_ISR_COM1_Handler, (void *)&Hw_Uart_Ch[HW_UART_COM1], 0x0);
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_Uart_Open_COM2
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_Uart_Open_COM2( u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
+{	
+
+	Hw_Uart_Ch[HW_UART_COM2].Baud 		 = BaudData;
+	Hw_Uart_Ch[HW_UART_COM2].ISR_FuncPtr = ISR_FuncPtr;
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE	: Hw_Uart_SetReceiveFuncISR
+     WORK
+			: 시리얼 포트에서 데이터 수신시 실행할 함수 설정 .
+     ARG
+     RET
+---------------------------------------------------------------------------*/
+void Hw_Uart_SetReceiveFuncISR( u8 Ch, void (*ISR_FuncPtr)(char Ch) )
+{
+	Hw_Uart_Ch[Ch].ISR_FuncPtr = ISR_FuncPtr;
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE	: Uart_Getch
+     WORK
+			: 시리얼 포트에서 문자 1바이트 읽는다.
+     ARG
+     RET
+---------------------------------------------------------------------------*/
+u8 Hw_Uart_Getch( u8 Ch )
+{
+	u8 Uart_GetData = 0;
+
+	while( 1 )
+	{
+		// 버퍼에 데이터 들어올때까지 기다린다.
+		if( HW_UART_Q_VAILD(Ch) > 0 ) break;
+	}
+
+	Hw_Uart_Q_Pop( Ch, &Uart_GetData );
+
+	return Uart_GetData;
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE	: Uart_Putch
+     WORK
+			: 시리얼 포트로 문자 1바이트 전송
+     ARG
+     RET
+---------------------------------------------------------------------------*/
+void Hw_Uart_Putch( u8 Ch,  char Uart_PutData )
+{
+	switch( Ch )
+	{
+		case HW_UART_COM1:
+
+			break;
+			
+		case HW_UART_COM2:
+			break;
+			
+		case HW_UART_COM3:
+			break;
+
+		case HW_UART_COM4:
+			break;
+
+		case HW_UART_COM5:
+			break;		
+
+		case HW_UART_VCOM:
+			break;	
+	}	
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE	: Uart_PrintEx
+     WORK
+     ARG
+     RET
+---------------------------------------------------------------------------*/
+void Hw_Uart_PrintEx( u8 Ch, char *UartPrintData )
+{
+	while( *UartPrintData != '\0' )
+	{
+		Hw_Uart_Putch( Ch, *UartPrintData );
+		UartPrintData++;
+	}        
+}
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE	: Uart_Printf
+     WORK
+     ARG
+     RET
+---------------------------------------------------------------------------*/
+void Hw_Uart_Printf( u8 Ch,  char *format, ... )
+{
+	char Str[200];
+	
+	va_list ap;
+	
+	va_start( ap, format );
+
+	//vsprintf( Str, format, ap );	
+
+	Lb_vsprintf(Str, format, ap );
+	
+	va_end(ap);
+	
+	
+	
+	
+	Hw_Uart_PrintEx( Ch, Str );
+}
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE	: Uart_GetchNoWait
+     WORK
+     ARG
+     RET
+---------------------------------------------------------------------------*/
+u8 Hw_Uart_GetchNoWait( u8 Ch, u8 *cReturn )
+{
+	// 버퍼에 데이터 없으면 실패로 종료.
+	if( HW_UART_Q_VAILD(Ch) == 0 )
+	{
+		return FALSE;
+	}
+		   
+	Hw_Uart_Q_Pop( Ch, cReturn );
+	
+	return TRUE;
+}
+
+
+
+
+
+
+
