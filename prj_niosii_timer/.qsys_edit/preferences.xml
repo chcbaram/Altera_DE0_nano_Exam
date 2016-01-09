@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="191" />
+   <irq preferredWidth="34" />
+  </columns>
+ </systemtable>
+ <library
+   expandedCategories="Project,Library/University Program/Memory,Library/University Program/Audio &amp; Video/Video,Library/Interface Protocols,Library/DSP,Library/Basic Functions/Clocks; PLLs and Resets,Library/Processors and Peripherals,Library/Basic Functions/Clocks; PLLs and Resets/PLL,Library/University Program/Bridges,Library/Processors and Peripherals/Peripherals,Library/Basic Functions,Library,Library/Memory Interfaces and Controllers,Library/University Program/Generic IO,Library/Qsys Interconnect,Library/University Program/Audio &amp; Video,Library/University Program,Library/Processors and Peripherals/Hard Processor Components,Library/University Program/Clock,Library/University Program/Communications" />
+ <window width="1100" height="800" x="1194" y="270" />
+ <generation synthesis="VHDL" />
+</preferences>

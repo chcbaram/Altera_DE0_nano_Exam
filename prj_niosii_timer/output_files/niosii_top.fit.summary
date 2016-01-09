@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sun Jan 10 00:48:29 2016
+Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+Revision Name : niosii_top
+Top-level Entity Name : niosii_top
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total logic elements : 3,267 / 22,320 ( 15 % )
+    Total combinational functions : 2,630 / 22,320 ( 12 % )
+    Dedicated logic registers : 2,134 / 22,320 ( 10 % )
+Total registers : 2134
+Total pins : 13 / 154 ( 8 % )
+Total virtual pins : 0
+Total memory bits : 395,264 / 608,256 ( 65 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
+Total PLLs : 1 / 4 ( 25 % )

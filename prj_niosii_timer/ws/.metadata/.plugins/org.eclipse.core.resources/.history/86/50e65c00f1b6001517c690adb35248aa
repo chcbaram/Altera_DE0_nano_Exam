@@ -1,0 +1,40 @@
+//----------------------------------------------------------------------------
+//    프로그램명 	:
+//
+//    만든이     	: Cho Han Cheol
+//
+//    날  짜     	:
+//    
+//    최종 수정  	:
+//
+//    MPU_Type	:
+//
+//    파일명     	: Msp.h
+//----------------------------------------------------------------------------
+
+#ifndef __MSP_H__
+#define __MSP_H__
+
+
+#ifdef   MSP_LOCAL
+#define  EXT_MSP_DEF
+#else
+#define  EXT_MSP_DEF     extern
+#endif
+
+
+
+
+
+#include "Hw.h"
+#include "Ap_Define.h"
+#include "Lb_Util.h"
+
+
+
+
+EXT_MSP_DEF void MSP_Init( void );
+
+
+
+#endif
