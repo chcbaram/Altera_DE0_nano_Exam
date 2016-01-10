@@ -1,0 +1,12 @@
+	component niosii is
+		port (
+			clk_clk                          : in  std_logic                    := 'X'; -- clk
+			ip_pwm_dir                       : out std_logic_vector(1 downto 0);        -- dir
+			ip_pwm_out                       : out std_logic_vector(1 downto 0);        -- out
+			pio_0_external_connection_export : out std_logic_vector(7 downto 0);        -- export
+			reset_reset_n                    : in  std_logic                    := 'X'; -- reset_n
+			uart_0_rxd                       : in  std_logic                    := 'X'; -- rxd
+			uart_0_txd                       : out std_logic                            -- txd
+		);
+	end component niosii;
+

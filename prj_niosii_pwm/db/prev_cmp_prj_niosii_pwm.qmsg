@@ -1,0 +1,12 @@
+{ "Info" "0" "" "qar.tcl version #1" {  } {  } 0 0 "qar.tcl version #1" 0 0 "0" 0 0 1452426351198 ""}
+{ "Info" "0" "" "Including '-use_file_set basic' by default" {  } {  } 0 0 "Including '-use_file_set basic' by default" 0 0 "0" 0 0 1452426351621 ""}
+{ "Info" "0" "" "All project revisions will be stored in common archive prj_niosii_pwm_tmp_archive.qar" {  } {  } 0 0 "All project revisions will be stored in common archive prj_niosii_pwm_tmp_archive.qar" 0 0 "0" 0 0 1452426351621 ""}
+{ "Info" "0" "" "Initializing files for 'niosii_top' revision" {  } {  } 0 0 "Initializing files for 'niosii_top' revision" 0 0 "0" 0 0 1452426351701 ""}
+{ "Info" "0" "" "File Set 'Source control' contains:" { { "Info" "0" "" "Project source and settings files" {  } {  } 0 0 "Project source and settings files" 0 0 "0" 0 0 1452426351718 ""} { "Info" "0" "" "Automatically detected source files" {  } {  } 0 0 "Automatically detected source files" 0 0 "0" 0 0 1452426351718 ""}  } {  } 0 0 "File Set 'Source control' contains:" 0 0 "0" 0 0 1452426351718 ""}
+{ "Info" "0" "" "Archive will store files relative to the closest common parent directory" {  } {  } 0 0 "Archive will store files relative to the closest common parent directory" 0 0 "0" 0 0 1452426352049 ""}
+{ "Info" "IPRJ_ARC_TCL_TCL_USING_COMMON_DIR" "C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_pwm/ " "Using common directory C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_pwm/" {  } {  } 0 13213 "Using common directory %1!s!" 0 0 "Design Software" 0 -1 1452426352070 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1452426352165 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1452426352166 ""}
+{ "Info" "0" "" "Generated archive 'prj_niosii_pwm_tmp_archive.qar'" {  } {  } 0 0 "Generated archive 'prj_niosii_pwm_tmp_archive.qar'" 0 0 "0" 0 0 1452426352166 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1452426352166 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1452426352166 ""}
