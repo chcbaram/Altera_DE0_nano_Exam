@@ -58,7 +58,13 @@ entity niosii_top is
 		p_pwm_out       : out std_logic_vector(1 downto 0);
 		
 		p_uart_0_rxd    : in  std_logic;
-		p_uart_0_txd    : out std_logic				
+		p_uart_0_txd    : out std_logic;				
+		
+		p_epcs_flash_dclk	 : out std_logic;                           
+		p_epcs_flash_sce	 : out std_logic;                           
+		p_epcs_flash_sdo	 : out std_logic;                          
+		p_epcs_flash_data0 	 : in  std_logic
+		
 		);
 end niosii_top;
 
@@ -74,13 +80,13 @@ architecture Behavioral of niosii_top is
             uart_0_rxd                       : in  std_logic                    := 'X'; -- rxd
             uart_0_txd                       : out std_logic;                           -- txd
             ip_pwm_dir                       : out std_logic_vector(1 downto 0);        -- dir
-            ip_pwm_out                       : out std_logic_vector(1 downto 0)         -- out			
+            ip_pwm_out                       : out std_logic_vector(1 downto 0);        -- out			
+            epcs_flash_dclk                  : out std_logic;                           -- dclk
+            epcs_flash_sce                   : out std_logic;                           -- sce
+            epcs_flash_sdo                   : out std_logic;                           -- sdo
+            epcs_flash_data0                 : in  std_logic                    := 'X'  -- data0			
         );
     end component niosii;
-
-
-
-
 
 
 		
@@ -98,7 +104,11 @@ begin
             uart_0_rxd                       => p_uart_0_rxd, 
             uart_0_txd                       => p_uart_0_txd,  
             ip_pwm_dir                       => p_pwm_dir,
-            ip_pwm_out                       => p_pwm_out			
+            ip_pwm_out                       => p_pwm_out,			
+            epcs_flash_dclk                  => p_epcs_flash_dclk,
+            epcs_flash_sce                   => p_epcs_flash_sce,
+            epcs_flash_sdo                   => p_epcs_flash_sdo,
+            epcs_flash_data0                 => p_epcs_flash_data0			
         );	
 		
 end Behavioral;

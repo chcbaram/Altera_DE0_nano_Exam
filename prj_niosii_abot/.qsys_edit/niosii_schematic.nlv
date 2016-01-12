@@ -1,0 +1,33 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst niosii.nios2_gen2_0.clock_bridge -pg 1
+preplace inst niosii.uart_0 -pg 1 -lvl 4 -y 410
+preplace inst niosii.pio_0 -pg 1 -lvl 4 -y 650
+preplace inst niosii.jtag_uart_0 -pg 1 -lvl 4 -y 110
+preplace inst niosii.nios2_gen2_0.reset_bridge -pg 1
+preplace inst niosii.ip_pwm_0 -pg 1 -lvl 4 -y 750
+preplace inst niosii.nios2_gen2_0 -pg 1 -lvl 2 -y 160
+preplace inst niosii -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst niosii.nios2_gen2_0.cpu -pg 1
+preplace inst niosii.onchip_memory2_0 -pg 1 -lvl 4 -y 30
+preplace inst niosii.timer_us -pg 1 -lvl 4 -y 310
+preplace inst niosii.epcs_flash_controller_0 -pg 1 -lvl 4 -y 530
+preplace inst niosii.clk_0 -pg 1 -lvl 1 -y 290
+preplace inst niosii.altpll_0 -pg 1 -lvl 3 -y 210
+preplace inst niosii.timer_ms -pg 1 -lvl 4 -y 210
+preplace netloc POINT_TO_POINT<net_container>niosii</net_container>(MASTER)clk_0.clk,(SLAVE)altpll_0.inclk_interface) 1 1 2 400 320 NJ
+preplace netloc FAN_OUT<net_container>niosii</net_container>(SLAVE)timer_us.clk,(SLAVE)timer_ms.clk,(MASTER)altpll_0.c2) 1 3 1 1100
+preplace netloc POINT_TO_POINT<net_container>niosii</net_container>(MASTER)altpll_0.c3,(SLAVE)epcs_flash_controller_0.clk) 1 3 1 1120
+preplace netloc EXPORT<net_container>niosii</net_container>(SLAVE)niosii.uart_0,(SLAVE)uart_0.external_connection) 1 0 4 NJ 440 NJ 440 NJ 440 NJ
+preplace netloc FAN_OUT<net_container>niosii</net_container>(SLAVE)jtag_uart_0.clk,(MASTER)altpll_0.c0,(SLAVE)onchip_memory2_0.clk1,(SLAVE)nios2_gen2_0.clk) 1 1 3 420 120 NJ 120 1060
+preplace netloc EXPORT<net_container>niosii</net_container>(SLAVE)niosii.ip_pwm,(SLAVE)ip_pwm_0.pwm) 1 0 4 NJ 800 NJ 800 NJ 800 NJ
+preplace netloc FAN_OUT<net_container>niosii</net_container>(SLAVE)ip_pwm_0.reset,(SLAVE)onchip_memory2_0.reset1,(SLAVE)jtag_uart_0.reset,(SLAVE)uart_0.reset,(SLAVE)epcs_flash_controller_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)pio_0.reset,(SLAVE)altpll_0.inclk_interface_reset,(SLAVE)timer_us.reset,(SLAVE)timer_ms.reset,(SLAVE)nios2_gen2_0.reset) 1 1 3 380 340 840 360 1080
+preplace netloc FAN_OUT<net_container>niosii</net_container>(MASTER)altpll_0.c1,(SLAVE)pio_0.clk,(SLAVE)ip_pwm_0.clock,(SLAVE)uart_0.clk) 1 3 1 1060
+preplace netloc INTERCONNECT<net_container>niosii</net_container>(SLAVE)epcs_flash_controller_0.epcs_control_port,(SLAVE)timer_us.s1,(SLAVE)uart_0.s1,(SLAVE)altpll_0.pll_slave,(MASTER)nios2_gen2_0.data_master,(SLAVE)timer_ms.s1,(SLAVE)ip_pwm_0.avs_s0,(SLAVE)pio_0.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)onchip_memory2_0.s1,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)jtag_uart_0.avalon_jtag_slave) 1 1 3 420 300 780 100 1140
+preplace netloc EXPORT<net_container>niosii</net_container>(SLAVE)niosii.pio_0_external_connection,(SLAVE)pio_0.external_connection) 1 0 4 NJ 680 NJ 680 NJ 680 NJ
+preplace netloc FAN_OUT<net_container>niosii</net_container>(SLAVE)epcs_flash_controller_0.irq,(SLAVE)uart_0.irq,(MASTER)nios2_gen2_0.irq,(SLAVE)timer_ms.irq,(SLAVE)jtag_uart_0.irq,(SLAVE)timer_us.irq) 1 2 2 800 200 1160
+preplace netloc EXPORT<net_container>niosii</net_container>(SLAVE)epcs_flash_controller_0.external,(SLAVE)niosii.epcs_flash) 1 0 4 NJ 580 NJ 580 NJ 580 NJ
+preplace netloc EXPORT<net_container>niosii</net_container>(SLAVE)clk_0.clk_in,(SLAVE)niosii.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>niosii</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)niosii.reset) 1 0 1 NJ
+levelinfo -pg 1 0 170 1380
+levelinfo -hier niosii 180 210 540 870 1210 1370

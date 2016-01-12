@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "p_led_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "p_led_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "p_led_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "p_led_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "p_led_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "p_led_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "p_led_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "p_led_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "p_pwm_dir[0]",
+					"strict" : false
+				},
+				{
+					"name" : "p_pwm_dir[1]",
+					"strict" : false
+				},
+				{
+					"name" : "p_pwm_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "p_pwm_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "p_uart_0_txd",
+					"strict" : false
+				},
+				{
+					"name" : "p_epcs_flash_dclk",
+					"strict" : false
+				},
+				{
+					"name" : "p_epcs_flash_sce",
+					"strict" : false
+				},
+				{
+					"name" : "p_epcs_flash_sdo",
+					"strict" : false
+				},
+				{
+					"name" : "p_clk_50Mhz",
+					"strict" : false
+				},
+				{
+					"name" : "p_button[0]",
+					"strict" : false
+				},
+				{
+					"name" : "p_epcs_flash_data0",
+					"strict" : false
+				},
+				{
+					"name" : "p_uart_0_rxd",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

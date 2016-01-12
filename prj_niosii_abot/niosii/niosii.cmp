@@ -1,6 +1,10 @@
 	component niosii is
 		port (
 			clk_clk                          : in  std_logic                    := 'X'; -- clk
+			epcs_flash_dclk                  : out std_logic;                           -- dclk
+			epcs_flash_sce                   : out std_logic;                           -- sce
+			epcs_flash_sdo                   : out std_logic;                           -- sdo
+			epcs_flash_data0                 : in  std_logic                    := 'X'; -- data0
 			ip_pwm_dir                       : out std_logic_vector(1 downto 0);        -- dir
 			ip_pwm_out                       : out std_logic_vector(1 downto 0);        -- out
 			pio_0_external_connection_export : out std_logic_vector(7 downto 0);        -- export

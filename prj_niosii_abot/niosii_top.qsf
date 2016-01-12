@@ -98,4 +98,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to p_pwm_dir[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to p_pwm_dir[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to p_pwm_out[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to p_pwm_out[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to p_epcs_flash_data0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to p_epcs_flash_dclk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to p_epcs_flash_sce
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to p_epcs_flash_sdo
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
