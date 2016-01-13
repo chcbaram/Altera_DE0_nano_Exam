@@ -2,7 +2,7 @@ set_global_assignment -entity "niosii" -library "niosii" -name IP_TOOL_NAME "Qsy
 set_global_assignment -entity "niosii" -library "niosii" -name IP_TOOL_VERSION "15.1"
 set_global_assignment -entity "niosii" -library "niosii" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "niosii" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../niosii.sopcinfo"]
-set_global_assignment -entity "niosii" -library "niosii" -name SLD_INFO "QSYS_NAME niosii HAS_SOPCINFO 1 GENERATION_ID 1452616068"
+set_global_assignment -entity "niosii" -library "niosii" -name SLD_INFO "QSYS_NAME niosii HAS_SOPCINFO 1 GENERATION_ID 1452699140"
 set_global_assignment -library "niosii" -name MISC_FILE [file join $::quartus(qip_path) "../niosii.cmp"]
 set_global_assignment -library "niosii" -name SLD_FILE [file join $::quartus(qip_path) "niosii.regmap"]
 set_global_assignment -library "niosii" -name SLD_FILE [file join $::quartus(qip_path) "niosii.debuginfo"]
@@ -16,7 +16,7 @@ set_global_assignment -entity "niosii" -library "niosii" -name IP_COMPONENT_DISP
 set_global_assignment -entity "niosii" -library "niosii" -name IP_COMPONENT_REPORT_HIERARCHY "On"
 set_global_assignment -entity "niosii" -library "niosii" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "niosii" -library "niosii" -name IP_COMPONENT_VERSION "MS4w"
-set_global_assignment -entity "niosii" -library "niosii" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQ1MjYxNjA2OA==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "niosii" -library "niosii" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQ1MjY5OTE0MA==::QXV0byBHRU5FUkFUSU9OX0lE"
 set_global_assignment -entity "niosii" -library "niosii" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBJViBF::QXV0byBERVZJQ0VfRkFNSUxZ"
 set_global_assignment -entity "niosii" -library "niosii" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::RVA0Q0UyMkYxN0M2::QXV0byBERVZJQ0U="
 set_global_assignment -entity "niosii" -library "niosii" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfU1BFRURHUkFERQ==::Ng==::QXV0byBERVZJQ0VfU1BFRURHUkFERQ=="
@@ -666,11 +666,13 @@ set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name 
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "ZGF0YVdpZHRo::MzI=::RGF0YSB3aWR0aA=="
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "ZHVhbFBvcnQ=::ZmFsc2U=::RHVhbC1wb3J0IGFjY2Vzcw=="
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "aW5pdE1lbUNvbnRlbnQ=::dHJ1ZQ==::SW5pdGlhbGl6ZSBtZW1vcnkgY29udGVudA=="
+set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "aW5pdGlhbGl6YXRpb25GaWxlTmFtZQ==::QzovRlBHQS9ERTBfbmFuby9BbHRlcmFfREUwX25hbm9fRXhhbS9wcmpfbmlvc2lpX2Fib3Qvc29mdHdhcmUvTmlvc0lJL21lbV9pbml0L25pb3NpaV9vbmNoaXBfbWVtb3J5Ml8wLmhleA==::VXNlciBjcmVhdGVkIGluaXRpYWxpemF0aW9uIGZpbGU="
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "bWVtb3J5U2l6ZQ==::NDgwMDA=::VG90YWwgbWVtb3J5IHNpemU="
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "c2ltQWxsb3dNUkFNQ29udGVudHNGaWxl::ZmFsc2U=::QWxsb3cgTVJBTSBjb250ZW50cyBmaWxlIGZvciBzaW11bGF0aW9u"
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "c2ltTWVtSW5pdE9ubHlGaWxlbmFtZQ==::MA==::U2ltdWxhdGlvbiBtZW1pbml0IG9ubHkgaGFzIGZpbGVuYW1l"
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "c2xhdmUxTGF0ZW5jeQ==::MQ==::U2xhdmUgczEgTGF0ZW5jeQ=="
-set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "dXNlTm9uRGVmYXVsdEluaXRGaWxl::ZmFsc2U=::RW5hYmxlIG5vbi1kZWZhdWx0IGluaXRpYWxpemF0aW9uIGZpbGU="
+set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "dXNlTm9uRGVmYXVsdEluaXRGaWxl::dHJ1ZQ==::RW5hYmxlIG5vbi1kZWZhdWx0IGluaXRpYWxpemF0aW9uIGZpbGU="
+set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "Y29weUluaXRGaWxl::ZmFsc2U=::Q29weSBub24tZGVmYXVsdCBpbml0aWFsaXphdGlvbiBmaWxlIHRvIGdlbmVyYXRlZCBmb2xkZXI="
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "d3JpdGFibGU=::dHJ1ZQ==::VHlwZQ=="
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "ZWNjX2VuYWJsZWQ=::ZmFsc2U=::RXh0ZW5kIHRoZSBkYXRhIHdpZHRoIHRvIHN1cHBvcnQgRUNDIGJpdHM="
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "cmVzZXRyZXF1ZXN0X2VuYWJsZWQ=::dHJ1ZQ==::UmVzZXQgUmVxdWVzdA=="
@@ -681,7 +683,7 @@ set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name 
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "ZGVyaXZlZF9zZXRfZGF0YV93aWR0aA==::MzI=::c2xhdmVfZGF0YV93aWR0aA=="
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "ZGVyaXZlZF9ndWlfcmFtX2Jsb2NrX3R5cGU=::QXV0b21hdGlj::ZGVyaXZlZF9ndWlfcmFtX2Jsb2NrX3R5cGU="
 set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "ZGVyaXZlZF9pc19oYXJkY29weQ==::ZmFsc2U=::ZGVyaXZlZF9pc19oYXJkY29weQ=="
-set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "ZGVyaXZlZF9pbml0X2ZpbGVfbmFtZQ==::bmlvc2lpX29uY2hpcF9tZW1vcnkyXzAuaGV4::ZGVyaXZlZF9pbml0X2ZpbGVfbmFtZQ=="
+set_global_assignment -entity "niosii_onchip_memory2_0" -library "niosii" -name IP_COMPONENT_PARAMETER "ZGVyaXZlZF9pbml0X2ZpbGVfbmFtZQ==::QzovRlBHQS9ERTBfbmFuby9BbHRlcmFfREUwX25hbm9fRXhhbS9wcmpfbmlvc2lpX2Fib3Qvc29mdHdhcmUvTmlvc0lJL21lbV9pbml0L25pb3NpaV9vbmNoaXBfbWVtb3J5Ml8wLmhleA==::ZGVyaXZlZF9pbml0X2ZpbGVfbmFtZQ=="
 set_global_assignment -entity "niosii_nios2_gen2_0" -library "niosii" -name IP_COMPONENT_NAME "bmlvc2lpX25pb3MyX2dlbjJfMA=="
 set_global_assignment -entity "niosii_nios2_gen2_0" -library "niosii" -name IP_COMPONENT_DISPLAY_NAME "TmlvcyBJSSBQcm9jZXNzb3I="
 set_global_assignment -entity "niosii_nios2_gen2_0" -library "niosii" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
@@ -1161,7 +1163,6 @@ set_global_assignment -library "niosii" -name VERILOG_FILE [file join $::quartus
 set_global_assignment -library "niosii" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosii_timer_us.v"]
 set_global_assignment -library "niosii" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosii_timer_ms.v"]
 set_global_assignment -library "niosii" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosii_pio_0.v"]
-set_global_assignment -library "niosii" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosii_onchip_memory2_0.hex"]
 set_global_assignment -library "niosii" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosii_onchip_memory2_0.v"]
 set_global_assignment -library "niosii" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosii_nios2_gen2_0.v"]
 set_global_assignment -library "niosii" -name SDC_FILE [file join $::quartus(qip_path) "submodules/niosii_nios2_gen2_0_cpu.sdc"]

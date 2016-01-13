@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="4e6c67ed81bc646bf4af"/>
+    <hash md5_digest_80b="f6286f64023de2203ad3"/>
   </project>
   <file_info>
     <file device="EP4CE22F17C6" path="niosii_top.sof" usercode="0xFFFFFFFF"/>
@@ -99,7 +99,7 @@
     </sld_info>
     <sld_info hpath="niosii:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME niosii HAS_SOPCINFO 1 GENERATION_ID 1452616120"/>
+        <assignment_value text="QSYS_NAME niosii HAS_SOPCINFO 1 GENERATION_ID 1452699186"/>
       </assignment_values>
       <parameters/>
     </sld_info>

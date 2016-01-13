@@ -12,6 +12,7 @@ obj/default/src/LIB_HW/Core/Hw_Uart.o: src/LIB_HW/Core/Hw_Uart.c \
  src/LIB_HW/Core/Hw_Regs.h src/LIB_HW/Core/Hw_Define.h \
  src/LIB_HW/Core/Hw_Uart.h src/LIB_HW/Core/Hw_ISR.h \
  src/LIB_HW/Driver/Hw_Led.h src/LIB_HW/Core/Hw_Timer.h \
+ src/LIB_HW/Core/Hw_Pwm.h src/LIB_HW/Core/Hw_DcMotor.h \
  src/LIB_LB/Lb_Printf.h src/LIB_HW/Core/Hw_Uart_Q.h \
  ../NiosII_Bsp/HAL/inc/sys/alt_irq.h ../NiosII_Bsp/HAL/inc/nios2.h \
  ../NiosII_Bsp/HAL/inc/sys/ioctl.h ../NiosII_Bsp/HAL/inc/sys/alt_errno.h \
@@ -61,6 +62,10 @@ src/LIB_HW/Core/Hw_ISR.h:
 src/LIB_HW/Driver/Hw_Led.h:
 
 src/LIB_HW/Core/Hw_Timer.h:
+
+src/LIB_HW/Core/Hw_Pwm.h:
+
+src/LIB_HW/Core/Hw_DcMotor.h:
 
 src/LIB_LB/Lb_Printf.h:
 

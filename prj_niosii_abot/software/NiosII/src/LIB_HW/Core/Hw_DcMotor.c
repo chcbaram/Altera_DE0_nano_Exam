@@ -1,0 +1,186 @@
+//----------------------------------------------------------------------------
+//    프로그램명 	: DC 모터 관련 함수
+//
+//    만든이     	: Cho Han Cheol
+//
+//    날  짜     	: 2013. 1. 22.
+//    
+//    최종 수정  	:
+//
+//    MPU_Type		:
+//
+//    파일명     	: Hw_DcMotor.c
+//----------------------------------------------------------------------------
+
+
+//----- 헤더파일 열기
+//
+#define  HW_DCMOTOR_LOCAL
+
+#include "Hw_DcMotor.h"
+#include "Hw_Pwm.h"
+
+
+#define HW_DCMOTOR_MAX_CNT			10
+
+#define HW_DCMOTOR_STATE_IDLE		0
+#define HW_DCMOTOR_STATE_STOP		1
+#define HW_DCMOTOR_STATE_RUN		2
+
+
+
+
+
+
+
+static HW_DCMOTOR_OBJ	Hw_DcMotor_State[HW_DCMOTOR_MAX_CH];
+
+
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_DcMotor_Init
+     WORK    : 
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_DcMotor_Init( void )
+{
+	u8 i;
+
+
+	//-- GPIO 설정
+	//
+
+
+	for( i=0; i<HW_DCMOTOR_MAX_CH; i++ )
+	{
+		Hw_DcMotor_Stop( i );
+
+		Hw_DcMotor_State[i].Dir   = HW_DCMOTOR_STOP;
+		Hw_DcMotor_State[i].Pin   = FALSE;
+		Hw_DcMotor_State[i].Speed = 0;
+		Hw_DcMotor_State[i].State = HW_DCMOTOR_STATE_STOP;
+	}
+
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_DcMotor_Stop
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_DcMotor_Stop( u8 Ch )
+{
+	Hw_DcMotor_SetPwm( Ch, 0 );
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_DcMotor_SetPwm
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_DcMotor_SetPwm( u8 Ch, u16 Pwm  )
+{
+	if( Ch >= HW_DCMOTOR_MAX_CH ) return;
+
+	if( Pwm > HW_DCMOTOR_MAX_PWM ) Pwm = HW_DCMOTOR_MAX_PWM;
+
+	Hw_DcMotor_State[Ch].Speed = Pwm;
+
+	Hw_Pwm_SetPercent( Ch, Pwm );
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_DcMotor_SetDir
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_DcMotor_SetDir( u8 Ch, u8 Dir  )
+{
+	if( Ch >= HW_DCMOTOR_MAX_CH ) return;
+
+	Hw_DcMotor_State[Ch].Dir = Dir;
+
+	Hw_Pwm_SetDir( Ch, Dir );
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE   : Hw_DcMotor_Handle
+     WORK    :
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void Hw_DcMotor_Handle( s16 SpeedLeft, s16 SpeedRight )
+{
+	u16 Pwm;
+
+
+	if( SpeedLeft  >  HW_DCMOTOR_MAX_PWM )	SpeedLeft  =  HW_DCMOTOR_MAX_PWM;
+	if( SpeedLeft  < -HW_DCMOTOR_MAX_PWM )	SpeedLeft  = -HW_DCMOTOR_MAX_PWM;
+	if( SpeedRight >  HW_DCMOTOR_MAX_PWM )	SpeedRight =  HW_DCMOTOR_MAX_PWM;
+	if( SpeedRight < -HW_DCMOTOR_MAX_PWM )	SpeedRight = -HW_DCMOTOR_MAX_PWM;
+
+
+	if( SpeedLeft > 0 )
+	{
+		Pwm = SpeedLeft;
+		Hw_DcMotor_SetPwm( HW_DCMOTOR_L, Pwm );
+		Hw_DcMotor_SetDir( HW_DCMOTOR_L, HW_DCMOTOR_FOR );
+	}
+	else
+	if( SpeedLeft < 0 )
+	{
+		Pwm = -SpeedLeft;
+		Hw_DcMotor_SetPwm( HW_DCMOTOR_L, Pwm );
+		Hw_DcMotor_SetDir( HW_DCMOTOR_L, HW_DCMOTOR_BACK );
+	}
+	else
+	{
+		Hw_DcMotor_SetPwm( HW_DCMOTOR_L, 0 );
+		Hw_DcMotor_SetDir( HW_DCMOTOR_L, HW_DCMOTOR_STOP );
+	}
+
+
+	if( SpeedRight > 0 )
+	{
+		Pwm = SpeedRight;
+		Hw_DcMotor_SetPwm( HW_DCMOTOR_R, Pwm );
+		Hw_DcMotor_SetDir( HW_DCMOTOR_R, HW_DCMOTOR_FOR );
+	}
+	else
+	if( SpeedRight < 0 )
+	{
+		Pwm = -SpeedRight;
+		Hw_DcMotor_SetPwm( HW_DCMOTOR_R, Pwm );
+		Hw_DcMotor_SetDir( HW_DCMOTOR_R, HW_DCMOTOR_BACK );
+	}
+	else
+	{
+		Hw_DcMotor_SetPwm( HW_DCMOTOR_R, 0 );
+		Hw_DcMotor_SetDir( HW_DCMOTOR_R, HW_DCMOTOR_STOP );
+	}
+
+}

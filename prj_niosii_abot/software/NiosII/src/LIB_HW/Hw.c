@@ -35,6 +35,8 @@ void Hw_Init( void )
 	Hw_ISR_Init();
 	Hw_Led_Init();
 	Hw_Uart_Init();
+	Hw_Pwm_Init();
+	Hw_DcMotor_Init();
 
 	Enable_ISR();
 }

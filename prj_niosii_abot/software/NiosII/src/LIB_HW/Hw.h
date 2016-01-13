@@ -52,6 +52,8 @@
 #include "Hw_ISR.h"
 #include "Hw_Led.h"
 #include "Hw_Timer.h"
+#include "Hw_Pwm.h"
+#include "Hw_DcMotor.h"
 
 
 

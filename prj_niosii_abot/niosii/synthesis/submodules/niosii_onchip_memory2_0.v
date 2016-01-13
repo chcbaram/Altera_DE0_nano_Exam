@@ -35,7 +35,7 @@ module niosii_onchip_memory2_0 (
                                )
 ;
 
-  parameter INIT_FILE = "niosii_onchip_memory2_0.hex";
+  parameter INIT_FILE = "C:/FPGA/DE0_nano/Altera_DE0_nano_Exam/prj_niosii_abot/software/NiosII/mem_init/niosii_onchip_memory2_0.hex";
 
 
   output  [ 31: 0] readdata;

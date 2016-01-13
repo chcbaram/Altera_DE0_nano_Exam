@@ -153,6 +153,8 @@ C_SRCS += src/main.c
 C_SRCS += src/LIB_HW/Hw.c
 C_SRCS += src/LIB_AP/Ap.c
 C_SRCS += src/LIB_AP/Lib/MSP.c
+C_SRCS += src/LIB_HW/Core/Hw_DcMotor.c
+C_SRCS += src/LIB_HW/Core/Hw_Pwm.c
 CXX_SRCS :=
 ASM_SRCS :=
 

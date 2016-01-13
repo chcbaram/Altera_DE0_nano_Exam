@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>2016. 1. 13 오전 1:35:19</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1452616519202</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>2016. 1. 14 오전 1:22:39</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1452702159603</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\FPGA\DE0_nano\Altera_DE0_nano_Exam\prj_niosii_abot\software\NiosII_Bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\niosii.sopcinfo</SopcDesignFile>
